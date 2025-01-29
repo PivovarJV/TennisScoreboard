@@ -1,9 +1,10 @@
 package org.example.tennisscoreboard.service;
 
 import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class MatchService {
-    HashMap<String, CurrentMatch> activeMatch = new HashMap<>();
+    static ConcurrentHashMap<String, CurrentMatch> activeMatch = new ConcurrentHashMap<>();
 
     public CurrentMatch startMatch(int idPlayerOne, int idPlayerTwo) {
         CurrentMatch currentMatch = new CurrentMatch(idPlayerOne, idPlayerTwo);
@@ -12,7 +13,7 @@ public class MatchService {
     }
 
     public CurrentMatch getOngoingMatchById(String id) {
-        CurrentMatch currentMatch = activeMatch.get(id);
-        return currentMatch;
+        return activeMatch.get(id);
     }
 }
+// стек хит, потоки, почему общая перменная не потоко безоп, потоко безопасность (тригулов)

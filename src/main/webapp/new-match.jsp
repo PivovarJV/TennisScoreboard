@@ -38,7 +38,7 @@
                     <label class="label-player" for="playerOne">Player one</label>
                     <input class="input-player" placeholder="Name" type="text" id="playerOne"
                            name="playerOne" pattern="[A-Za-z]{1,12}" required
-                           title="Enter up to 16 letters (no spaces, numbers, or special characters">
+                           title="Enter up to 12 letters (no spaces, numbers, or special characters">
                     <label class="label-player" for="playerTwo">Player two</label>
                     <input class="input-player" placeholder="Name" type="text" id="playerTwo"
                            name="playerTwo" pattern="[A-Za-z]{1,12}" required

@@ -47,20 +47,26 @@
                 <tbody>
                 <tr class="player1">
                     <td class="table-text">${sessionScope.playerOne}</td>
-                    <td class="table-text">2</td>
-                    <td class="table-text">4</td>
-                    <td class="table-text">40</td>
+                    <td class="table-text">${sessionScope.setsOnePlayer}</td>
+                    <td class="table-text">${sessionScope.gamesOnePlayer}</td>
+                    <td class="table-text">${sessionScope.pointsOnePlayer}</td>
                     <td class="table-text">
-                        <div class="score-btn">Score</div>
+                        <form method="post">
+                            <button type="submit" class="score-btn">Score</button>
+                            <input type="hidden" name="playerId" value="1">
+                        </form>
                     </td>
                 </tr>
                 <tr class="player2">
                     <td class="table-text">${sessionScope.playerTwo}</td>
-                    <td class="table-text">2</td>
-                    <td class="table-text">3</td>
-                    <td class="table-text">15</td>
+                    <td class="table-text">${sessionScope.setsTwoPlayer}</td>
+                    <td class="table-text">${sessionScope.gamesTwoPlayer}</td>
+                    <td class="table-text">${sessionScope.pointsTwoPlayer}</td>
                     <td class="table-text">
-                        <div class="score-btn">Score</div>
+                        <form method="post">
+                            <button type="submit" class="score-btn">Score</button>
+                            <input type="hidden" name="playerId" value="2">
+                        </form>
                     </td>
                 </tr>
                 </tbody>

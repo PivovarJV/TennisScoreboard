@@ -1,6 +1,5 @@
 package org.example.tennisscoreboard.service;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.util.UUID;
@@ -9,14 +8,22 @@ public class CurrentMatch {
     private String idMatch;
     private int idPlayerOne;
     private int idPlayerTwo;
-    private int scorePlayerOne;
-    private int scorePlayerTwo;
+    private int pointsPlayerOne;
+    private int pointsPlayerTwo;
+    private int gamesPlayerOne;
+    private int gamesPlayerTwo;
+    private int setsPlayerOne;
+    private int setsPlayerTwo;
 
     public CurrentMatch(int idPlayerOne, int idPlayerTwo) {
         this.idMatch = UUID.randomUUID().toString();
         this.idPlayerOne = idPlayerOne;
         this.idPlayerTwo = idPlayerTwo;
-        this.scorePlayerOne = 0;
-        this.scorePlayerTwo = 0;
+        this.pointsPlayerOne = 0;
+        this.pointsPlayerTwo = 0;
+        this.gamesPlayerOne = 0;
+        this.gamesPlayerTwo = 0;
+        this.setsPlayerOne = 0;
+        this.setsPlayerTwo = 0;
     }
 }
