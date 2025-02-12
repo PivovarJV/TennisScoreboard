@@ -1,4 +1,4 @@
-package org.example.tennisscoreboard.servlets;
+package tennisscoreboard.example.tennisscoreboard.servlets;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -12,7 +12,7 @@ import java.io.IOException;
 public class Matches extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doGet(req, resp);
+        req.getRequestDispatcher("matches.jsp").forward(req, resp);
     }
 
     @Override

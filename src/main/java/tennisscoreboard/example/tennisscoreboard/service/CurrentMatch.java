@@ -1,4 +1,4 @@
-package org.example.tennisscoreboard.service;
+package tennisscoreboard.example.tennisscoreboard.service;
 
 import lombok.Data;
 
@@ -14,6 +14,8 @@ public class CurrentMatch {
     private int gamesPlayerTwo;
     private int setsPlayerOne;
     private int setsPlayerTwo;
+    private boolean teaBreak;
+    private boolean handleDeuce;
 
     public CurrentMatch(int idPlayerOne, int idPlayerTwo) {
         this.idMatch = UUID.randomUUID().toString();
@@ -25,5 +27,7 @@ public class CurrentMatch {
         this.gamesPlayerTwo = 0;
         this.setsPlayerOne = 0;
         this.setsPlayerTwo = 0;
+        this.teaBreak = false;
+        this.handleDeuce = false;
     }
 }

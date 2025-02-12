@@ -1,4 +1,4 @@
-package org.example.tennisscoreboard.model;
+package tennisscoreboard.example.tennisscoreboard.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -9,18 +9,15 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
 @Entity
-@Table(name = "matches")
-public class Match {
+@Builder
+
+@Table(name = "players")
+public class Player {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
-    private int player1;
-
-    private int player2;
-
-    private int winner;
+    private String name;
 }

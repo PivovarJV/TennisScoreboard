@@ -1,7 +1,7 @@
-package org.example.tennisscoreboard.service;
+package tennisscoreboard.example.tennisscoreboard.service;
 
-import org.example.tennisscoreboard.dao.PlayersDAO;
-import org.example.tennisscoreboard.model.Player;
+import tennisscoreboard.example.tennisscoreboard.dao.PlayersDAO;
+import tennisscoreboard.example.tennisscoreboard.model.Player;
 
 public class PlayerService {
     private final PlayersDAO playersDAO = new PlayersDAO();

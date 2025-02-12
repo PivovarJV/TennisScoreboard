@@ -1,8 +1,8 @@
-package org.example.tennisscoreboard.dao;
+package tennisscoreboard.example.tennisscoreboard.dao;
 
 import lombok.NoArgsConstructor;
-import org.example.tennisscoreboard.model.Player;
-import org.example.tennisscoreboard.util.HibernateUtil;
+import tennisscoreboard.example.tennisscoreboard.model.Player;
+import tennisscoreboard.example.tennisscoreboard.util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 

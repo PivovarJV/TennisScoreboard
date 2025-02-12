@@ -1,4 +1,4 @@
-package org.example.tennisscoreboard.servlets;
+package tennisscoreboard.example.tennisscoreboard.servlets;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -6,9 +6,9 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import org.example.tennisscoreboard.service.CurrentMatch;
-import org.example.tennisscoreboard.service.MatchScoreCalculationService;
-import org.example.tennisscoreboard.service.MatchService;
+import tennisscoreboard.example.tennisscoreboard.service.CurrentMatch;
+import tennisscoreboard.example.tennisscoreboard.service.MatchScoreCalculationService;
+import tennisscoreboard.example.tennisscoreboard.service.MatchService;
 
 import java.io.IOException;
 
@@ -25,6 +25,13 @@ public class MatchScore extends HttpServlet {
         matchScoreCalculationService.calculationService(player, currentMatch);
 
         HttpSession session = req.getSession();
+        String nameOnePlayer = (String) session.getAttribute("playerOne");
+        String nameTwoPlayer = (String) session.getAttribute("playerTwo");
+        String winner = matchService.whoWinner(currentMatch, nameOnePlayer, nameTwoPlayer);
+        if (winner!= null) {
+            session.setAttribute("winner", winner);
+        }
+
         session.setAttribute("pointsOnePlayer", currentMatch.getPointsPlayerOne());
         session.setAttribute("gamesOnePlayer", currentMatch.getGamesPlayerOne());
         session.setAttribute("setsOnePlayer", currentMatch.getSetsPlayerOne());

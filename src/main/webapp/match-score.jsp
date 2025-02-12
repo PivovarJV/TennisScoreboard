@@ -12,6 +12,37 @@
     <link rel="stylesheet" href="css/style.css">
 
     <script src="js/app.js"></script>
+
+    <style>
+        /* Стили для модального окна */
+        .modal {
+            display: none; /* Скрываем по умолчанию */
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 300px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
 <header class="header">
@@ -30,6 +61,7 @@
         </div>
     </section>
 </header>
+
 <main>
     <div class="container">
         <h1>Current match</h1>
@@ -74,6 +106,30 @@
         </section>
     </div>
 </main>
+
+<%-- Модальное окно, которое появляется только если есть победитель --%>
+<%
+    String winner = (String) session.getAttribute("winner");
+    if (winner != null) {
+%>
+<div class="modal" id="winnerModal">
+    <div class="modal-content">
+        <h2>Match Finished!</h2>
+        <p>Winner: <span><%= winner %></span></p>
+        <form action="matches" method="get">
+            <button type="submit">View Completed Matches</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    // Показать модальное окно, если есть победитель
+    document.getElementById("winnerModal").style.display = "flex";
+</script>
+<%
+    }
+%>
+
 <footer>
     <div class="footer">
         <p>&copy; Tennis Scoreboard, project from <a href="https://zhukovsd.github.io/java-backend-learning-course/">zhukovsd/java-backend-learning-course</a> roadmap.</p>
