@@ -114,12 +114,14 @@ public class MatchScoreCalculationService {
             currentMatch.setSetsPlayerOne(currentMatch.getSetsPlayerOne() + 1);
             resetGames(currentMatch);
             if (currentMatch.getSetsPlayerOne() == 2 && currentMatch.getSetsPlayerTwo() <= 1) {
+                matchService.saveMatchInBaseData(currentMatch.getIdPlayerOne(), currentMatch.getIdPlayerTwo(), currentMatch.getIdPlayerOne());
                 matchService.removeMatch(activeMatch, currentMatch.getIdMatch());
             }
         } else {
             currentMatch.setSetsPlayerTwo(currentMatch.getSetsPlayerTwo() + 1);
             resetGames(currentMatch);
             if (currentMatch.getSetsPlayerTwo() == 2 && currentMatch.getSetsPlayerOne() <= 1) {
+                matchService.saveMatchInBaseData(currentMatch.getIdPlayerOne(), currentMatch.getIdPlayerTwo(), currentMatch.getIdPlayerTwo());
                 matchService.removeMatch(activeMatch, currentMatch.getIdMatch());
             }
         }

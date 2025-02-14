@@ -17,12 +17,11 @@ public class PlayersDAO {
     }
 
     public Player savePlayer(String name) {
-        Transaction transaction = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             Player player = Player.builder()
                     .name(name)
                     .build();
-            transaction = session.beginTransaction();
+            Transaction transaction = session.beginTransaction();
             session.persist(player);
             transaction.commit();
             return player;

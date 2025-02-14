@@ -13,4 +13,9 @@ public class PlayerService {
         }
         return player;
     }
+
+    public int getIdByNamePlayer(String name) {
+        Player player = playersDAO.getPlayerByName(name);
+        return player.getId();
+    }
 }
