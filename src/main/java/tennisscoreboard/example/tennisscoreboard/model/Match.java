@@ -18,9 +18,12 @@ public class Match {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private int player1;
+    @Column(name = "player1")
+    private int idOnePlayer;
 
-    private int player2;
+    @Column(name = "player2")
+    private int idTwoPlayer;
 
-    private int winner;
+    @Column(name = "winner")
+    private int idWinnerPlayer;
 }

@@ -1,3 +1,6 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <html>
 <head>
     <meta charset="UTF-8">
@@ -7,7 +10,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-
     <script src="js/app.js"></script>
 </head>
 
@@ -39,38 +41,23 @@
                 </a>
             </div>
         </div>
-
         <table class="table-matches">
             <tr>
                 <th>Player One</th>
                 <th>Player Two</th>
                 <th>Winner</th>
             </tr>
-            <tr>
-                <td>Rafael Nadal</td>
-                <td>Roger Federer</td>
-                <td><span class="winner-name-td">Rafael Nadal</span></td>
-            </tr>
-            <tr>
-                <td>Rafael Nadal</td>
-                <td>Roger Federer</td>
-                <td><span class="winner-name-td">Roger Federer</span></td>
-            </tr>
-            <tr>
-                <td>Rafael Nadal</td>
-                <td>Roger Federer</td>
-                <td><span class="winner-name-td">Rafael Nadal</span></td>
-            </tr>
-            <tr>
-                <td>Rafael Nadal</td>
-                <td>Roger Federer</td>
-                <td><span class="winner-name-td">Roger Federer</span></td>
-            </tr>
-            <tr>
-                <td>Rafael Nadal</td>
-                <td>Roger Federer</td>
-                <td><span class="winner-name-td">Rafael Nadal</span></td>
-            </tr>
+            <p>Matches size: ${sessionScope.listMatch.size()}</p>
+
+            <c:forEach var="match" items="${sessionScope.listMatch}">
+                <tr>
+                    <td>${match.nameOnePlayer}</td>
+                    <td>${match.nameTwoPlayer}</td>
+                    <td><span class="winner-name-td">${match.nameWinnerPlayer}</span></td>
+                </tr>
+            </c:forEach>
+
+
         </table>
 
         <div class="pagination">

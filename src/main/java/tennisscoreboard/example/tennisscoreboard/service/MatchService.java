@@ -1,8 +1,9 @@
 package tennisscoreboard.example.tennisscoreboard.service;
 
 import tennisscoreboard.example.tennisscoreboard.dao.MatchDAO;
-import tennisscoreboard.example.tennisscoreboard.dao.PlayersDAO;
+import tennisscoreboard.example.tennisscoreboard.dto.MatchDTO;
 
+import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class MatchService {
@@ -25,6 +26,14 @@ public class MatchService {
         return winner;
     }
 
+    public int getMatchesCountService(int pageSize) {
+        return (int) Math.ceil((double) matchDAO.getMatchesCount() / pageSize);
+    }
+
+    public List<MatchDTO> getMatchesPageService(int page, int pageSize) {
+        return matchDAO.getMatchesPage(page, pageSize);
+    }
+
     public void removeMatch(ConcurrentHashMap<String, CurrentMatch> activeMatch, String key) {
         activeMatch.remove(key);
     }
@@ -37,4 +46,3 @@ public class MatchService {
         matchDAO.saveFinishMatch(idOnePlayer, idTwoPlayer, idWinner);
     }
 }
-// стек хит, потоки, почему общая перменная не потоко безоп, потоко безопасность (тригулов)
