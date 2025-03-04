@@ -34,7 +34,7 @@
             <div class="new-match-image"></div>
             <div class="form-container center">
                 <form method="post" action="/new-match">
-                    <p style="color: red;">Sample error message</p>
+                    <p style="color: red;">${error}</p>
                     <label class="label-player" for="playerOne">Player one</label>
                     <input class="input-player" placeholder="Name" type="text" id="playerOne"
                            name="playerOne" pattern="[A-Za-z]{1,12}" required

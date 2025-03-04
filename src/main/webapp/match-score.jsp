@@ -56,7 +56,7 @@
         <div>
             <nav class="nav-links">
                 <a class="nav-link" href="/">Home</a>
-                <a class="nav-link" href="#">Matches</a>
+                <a class="nav-link" href="/matches">Matches</a>
             </nav>
         </div>
     </section>

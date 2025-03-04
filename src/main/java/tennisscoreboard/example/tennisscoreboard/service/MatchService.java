@@ -10,6 +10,10 @@ public class MatchService {
     static ConcurrentHashMap<String, CurrentMatch> activeMatch = new ConcurrentHashMap<>();
     private final MatchDAO matchDAO = new MatchDAO();
 
+    public List<MatchDTO> getMatchesListByNameService(String name, int page, int pageSize) {
+        return matchDAO.getMatchesByName(name, page, pageSize);
+    }
+
     public CurrentMatch startMatch(int idPlayerOne, int idPlayerTwo) {
         CurrentMatch currentMatch = new CurrentMatch(idPlayerOne, idPlayerTwo);
         activeMatch.put(currentMatch.getIdMatch(), currentMatch);

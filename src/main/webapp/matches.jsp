@@ -25,7 +25,7 @@
         <div>
             <nav class="nav-links">
                 <a class="nav-link" href="/">Home</a>
-                <a class="nav-link" href="#">Matches</a>
+                <a class="nav-link" href="/matches">Matches</a>
             </nav>
         </div>
     </section>
@@ -34,20 +34,25 @@
     <div class="container">
         <h1>Matches</h1>
         <div class="input-container">
-            <input class="input-filter" placeholder="Filter by name" type="text" />
-            <div>
-                <a href="#">
-                    <button class="btn-filter">Reset Filter</button>
+            <form action="matches" method="GET">
+                <input class="input-filter" name="filter_by_player_name" placeholder="Filter by name" type="text"
+                       value="${param.filter_by_player_name}" />
+                <button type="submit" class="btn-filter">Search</button>
+                <a href="matches">
+                    <button type="button" class="btn-filter">Reset Filter</button>
                 </a>
-            </div>
+            </form>
         </div>
+        <c:if test="${not empty error}">
+            <div class="error-message">${error}</div>  <!-- Покажем сообщение об ошибке -->
+        </c:if>
+
         <table class="table-matches">
             <tr>
                 <th>Player One</th>
                 <th>Player Two</th>
                 <th>Winner</th>
             </tr>
-            <p>Matches size: ${sessionScope.listMatch.size()}</p>
 
             <c:forEach var="match" items="${sessionScope.listMatch}">
                 <tr>
@@ -61,11 +66,17 @@
         </table>
 
         <div class="pagination">
-            <a class="prev" href="#"> < </a>
-            <a class="num-page current" href="#">1</a>
-            <a class="num-page" href="#">2</a>
-            <a class="num-page" href="#">3</a>
-            <a class="next" href="#"> > </a>
+            <c:if test="${page > 1}">
+                <a class="prev" href="matches?page=${page - 1}&filter_by_player_name=${param.filter_by_player_name}"> < </a>
+            </c:if>
+
+            <c:forEach var="i" begin="1" end="${totalPage}">
+                <a class="num-page ${i == page ? 'current' : ''}" href="matches?page=${i}&filter_by_player_name=${param.filter_by_player_name}">${i}</a>
+            </c:forEach>
+
+            <c:if test="${page < totalPage}">
+                <a class="next" href="matches?page=${page + 1}&filter_by_player_name=${param.filter_by_player_name}"> > </a>
+            </c:if>
         </div>
     </div>
 </main>
